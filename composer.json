@@ -1,0 +1,32 @@
+{
+    "name": "jiangyong\/address-fence",
+    "description": "a address-fence APi",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jiangyong",
+            "email": "826834737@qq.com"
+        }
+    ],
+    "require": {
+        "phpunit/phpunit": "^7.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jiangyong\\AddressFence\\": "./src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jiangyong\\AddressFence\\ServiceProvider"
+            ]
+        }
+    },
+    "repositories": {
+        "address-fence": {
+            "type": "path",
+            "url": "../address-fence"
+        }
+    }
+}
