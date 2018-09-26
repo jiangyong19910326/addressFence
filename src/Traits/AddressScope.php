@@ -40,13 +40,19 @@ trait AddressScope{
         $this->latMax = empty(config('services.address.latMax')) ? $latMax : config('services.address.latMax');
     }
 
+    /**
+     * @param $query
+     * @param array $point
+     * @return mixed
+     * 通过调用直接在数据库中匹配出符合的长方形区域
+     */
     public function scopeReturnFeasibleFenceArea($query,$point = [])
     {
         if(empty($point)) {
             throw new InvalidArgumentException('The array can be null');
         }
         //此处用于scope作用域，在模型里引用，然后控制器直接调用
-        return $query->where($this->lngMin,'>=',$point[0][0])->where($this->lngMax,'=<',$point[0][1])->where($this->latMin,'>=',$point[1][0])->where($this->lngMax,'=<',$point[1][1]);
+        return $query->where($this->lngMin,'>=',$point[0][0])->where($this->lngMax,'<=',$point[0][1])->where($this->latMin,'>=',$point[1][0])->where($this->latMax,'<=',$point[1][1]);
 
     }
 
