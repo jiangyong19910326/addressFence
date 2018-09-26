@@ -10,7 +10,7 @@
     ],
     "require": {
         "phpunit/phpunit": "^7.3",
-        "jiangyong/address-fence": "~1"
+        "jiangyong/address-fence": "^1.0"
     },
     "autoload": {
         "psr-4": {
