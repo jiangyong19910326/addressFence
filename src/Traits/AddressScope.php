@@ -34,10 +34,10 @@ trait AddressScope{
 
     public function __construct($lngMin = 'lngMin',$lngMax = 'lngMax',$latMin = 'latMin',$latMax = 'latMax')
     {
-        $this->lngMin = empty(config('services.address.lngMin')) ? $lngMin : config('services.address.lngMin');
-        $this->lngMax = empty(config('services.address.lngMax')) ? $lngMax : config('services.address.lngMax');
-        $this->latMin = empty(config('services.address.latMin')) ? $latMin : config('services.address.latMin');
-        $this->latMax = empty(config('services.address.latMax')) ? $latMax : config('services.address.latMax');
+        $this->lngMin = empty(config('services.addressFence.lngMin')) ? $lngMin : config('services.addressFence.lngMin');
+        $this->lngMax = empty(config('services.addressFence.lngMax')) ? $lngMax : config('services.addressFence.lngMax');
+        $this->latMin = empty(config('services.addressFence.latMin')) ? $latMin : config('services.addressFence.latMin');
+        $this->latMax = empty(config('services.addressFence.latMax')) ? $latMax : config('services.addressFence.latMax');
     }
 
     /**
