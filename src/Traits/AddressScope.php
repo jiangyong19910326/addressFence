@@ -7,6 +7,8 @@
  */
 namespace Jiangyong\AddressFence\Traits;
 
+use Jiangyong\AddressFence\Exceptions\InvalidArgumentException;
+
 trait AddressScope{
 
     protected $lngMin;
@@ -51,8 +53,11 @@ trait AddressScope{
         if(empty($point)) {
             throw new InvalidArgumentException('The array can be null');
         }
+        if(!is_array($point)){
+            throw  new InvalidArgumentException('This must be array');
+        }
         //此处用于scope作用域，在模型里引用，然后控制器直接调用
-        return $query->where($this->lngMin,'>=',$point[0][0])->where($this->lngMax,'<=',$point[0][1])->where($this->latMin,'>=',$point[1][0])->where($this->latMax,'<=',$point[1][1]);
+        return $query->where($this->lngMin,'<=',$point['lng'])->where($this->lngMax,'>=',$point['lng'])->where($this->latMin,'<=',$point['lat'])->where($this->latMax,'>=',$point['lat']);
 
     }
 
