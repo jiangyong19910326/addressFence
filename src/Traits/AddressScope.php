@@ -57,6 +57,7 @@ trait AddressScope{
             throw  new InvalidArgumentException('This must be array');
         }
         //此处用于scope作用域，在模型里引用，然后控制器直接调用
+        
         return $query->where($this->lngMin,'<=',$point['lng'])->where($this->lngMax,'>=',$point['lng'])->where($this->latMin,'<=',$point['lat'])->where($this->latMax,'>=',$point['lat']);
 
     }
